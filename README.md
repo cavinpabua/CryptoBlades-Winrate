@@ -17,7 +17,7 @@ This simulates 500 battles instantly so that players have a better idea on their
   <li>Show your win rate on each enemy</li>
   <li>Percentile Success rate colors</li>
   <li>Show your Hero Power Range ( Bottom left )</li>
-  <li>Show predicted SKILL Payout on chosen enemy</li>
+  <li>Show predicted SKILL Payout on chosen enemy (May not be accurate by decimal places)</li>
 </ul>
 
     1) Go to the Combat Screen and click Show win % to start generating combat predictions.
