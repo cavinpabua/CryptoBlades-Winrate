@@ -122,11 +122,6 @@ window.onload = setTimeout(() => {
                     }
                     item.querySelector('h2').innerText = `Win ${chances[index]}%`
                 })
-                //
-                // enemies[0].querySelector('h2').innerText = 'Win ' + chances[0]
-                // enemies[1].querySelector('h2').innerText = 'Win ' + chances[1]
-                // enemies[2].querySelector('h2').innerText = 'Win ' + chances[2]
-                // enemies[3].querySelector('h2').innerText = 'Win ' + chances[3]
 
                 if (clear1 == null) {
                     clear1 = true;
