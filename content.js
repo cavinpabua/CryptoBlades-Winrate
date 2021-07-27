@@ -30,6 +30,13 @@ window.onload = setTimeout(() => {
         while (document.querySelector('ul[class="character-list"]') == null) {}
         document.querySelector('ul[class="character-list"]').append(inpElement)
 
+        const heroPowerElement = document.createElement('heropower');
+        heroPowerElement.style = "position:fixed;bottom:180px;left:20px;z-index:9999;visibility:hidden"
+        heroPowerElement.className = "btn button main-font dark-bg-text encounter-button btn-styled btn-primary has-tooltip"
+        heroPowerElement.innerHTML = `<div style="font-weight: 400;font-size: 1em;padding: 9px 2px;border-radius: 5px;" id="heropower-id" data-v-69ae70f6="">Hero Power</div>`
+        while (document.querySelector('body') == null) {}
+        document.querySelector('body').append(heroPowerElement)
+
         $(".winrate-fight").on("click", function () {
 
 
@@ -111,6 +118,18 @@ window.onload = setTimeout(() => {
 
                 chances = fight(heroPower, heroTrait, weaponPower, weaponTrait, stat1, stat1Trait, stat2, stat2Trait, stat3, stat3Trait, enemy1, enemy1Trait, enemy2, enemy2Trait, enemy3, enemy3Trait, enemy4, enemy4Trait);
 
+                let weaponPowerMultiplier = getWeaponPower(weaponTrait, stat1, stat1Trait, stat2, stat2Trait, stat3, stat3Trait);
+
+                let power = (heroPower*weaponPowerMultiplier) + weaponPower;
+
+                let heroEnemy1Min = Math.ceil((power - power*0.1));
+                let heroEnemy1Max = Math.floor((power + power*0.1));
+                const powerElementDiv = document.querySelectorAll('heropower');
+                powerElementDiv[0].style.visibility = "visible"
+                powerElementDiv[0].querySelector('div[id="heropower-id"]').innerText = `Hero Power: ${heroEnemy1Min} - ${heroEnemy1Max}`
+
+
+
                 // plot
                 enemies.forEach((item, index)=>{
                     if (chances[index] < 60) {
@@ -168,6 +187,10 @@ window.onload = setTimeout(() => {
             enemies[1].querySelector('h2').innerText = '';
             enemies[2].querySelector('h2').innerText = '';
             enemies[3].querySelector('h2').innerText = '';
+
+            const powerElementDiv = document.querySelectorAll('heropower');
+            powerElementDiv[0].style.visibility = "hidden"
+            powerElementDiv[0].querySelector('div[id="heropower-id"]').innerText = ``
         }
 
         function checkElement(elem) {

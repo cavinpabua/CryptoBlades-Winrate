@@ -9,3 +9,4 @@ Go to the Combat Screen and hover your mouse over the your weapon to start gener
 This simulator uses the current Combat Formula found in CryptoBlades documentation, and will be updated should there be a publicly available information for the changes in the combat formula:
 ----------------------
 ![Screenshot](https://i.imgur.com/hGJSZMa.png)
+__
