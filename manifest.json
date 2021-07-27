@@ -1,7 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Cryptoblade Winrate by cavin",
-  "version": "1.0.0",
+  "name": "Cryptoblade Winrate",
+  "author": "CavinPabua",
+  "description": "Simulate CryptoBlade win rate",
+  "version": "1.0.4",
   "background": {
     "scripts": [
       "background.js"
@@ -16,5 +18,14 @@
         "jquery-3.5.1.min.js", "content.js"
       ]
     }
-  ]
+  ],
+  "page_action": {
+    "default_title": "CB Win rate",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  }
 }
