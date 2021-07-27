@@ -27,4 +27,5 @@ This simulates 500 battles instantly so that players have a better idea on their
 
 Simulator Formula: 
 ![Screenshot](https://i.imgur.com/hGJSZMa.png)
-__
+
+    For Donations: 0xDcA38C3adD7B36885903d1283f51d0368Af85dc9
