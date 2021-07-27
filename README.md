@@ -23,7 +23,7 @@ This simulates 500 battles instantly so that players have a better idea on their
     1) Go to the Combat Screen and click Show win % to start generating combat predictions.
     2) You may repeatedly click Show win % to show different predictions of +-10% according to formula.
 
-![Screenshot](https://i.imgur.com/wU7jckF.png)
+![Screenshot](https://i.imgur.com/mag0xRu.png)
 
 Simulator Formula: 
 ![Screenshot](https://i.imgur.com/hGJSZMa.png)
