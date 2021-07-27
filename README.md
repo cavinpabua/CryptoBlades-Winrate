@@ -11,9 +11,17 @@ This Chrome Extension lets you automatically simulate battles in Combat for Cryp
   <li>Select the directory containing this extension.</li>
 </ul>
 
-Go to the Combat Screen and hover your mouse over the your weapon to start generating combat predictions.
+<b>Features</b><br/>
+
+<ul>
+  <li>Show your win rate on each enemy</li>
+  <li>Percentile Success rate colors</li>
+  <li>Show your Hero Power Range ( Bottom left )</li>
+</ul>
+
+Go to the Combat Screen and click Show win % to start generating combat predictions.
 ----------------------------------------------
-![Screenshot](https://i.imgur.com/WbDHr1D.png)
+![Screenshot](https://i.imgur.com/wU7jckF.png)
 
 This simulator uses the current Combat Formula found in CryptoBlades documentation, and will be updated should there be a publicly available information for the changes in the combat formula:
 ----------------------
