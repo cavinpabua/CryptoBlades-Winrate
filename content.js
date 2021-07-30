@@ -79,7 +79,7 @@ window.onload = setTimeout(() => {
         try {
             const enemies = document.querySelectorAll('div[class="encounter-container"]');
             // get trait hero in string, convert to int
-            let heroTraitStr = document.querySelectorAll('span[data-v-69ae70f6]')[1].className.replace('-icon trait-icon', '')
+            let heroTraitStr = document.querySelectorAll('span[data-v-07ea9a5c]')[1].className.replace('-icon trait-icon', '')
             const heroTrait = checkElement(heroTraitStr);
 
             // get weapon div, get all stats
@@ -121,7 +121,7 @@ window.onload = setTimeout(() => {
             let enemy4Trait = checkElement(enemies[3].querySelector('span').className.replace('-icon', ''));
 
             // hero power
-            let heroPower = validateInput(document.querySelectorAll('span[data-v-69ae70f6]')[4].innerText.replace(/\D+/, ''));
+            let heroPower = validateInput(document.querySelectorAll('span[data-v-07ea9a5c]')[4].innerText.replace(/\D+/, ''));
             // bonus power
             let weaponPower = document.querySelector('input[id="abuztrade-bonus-power"]').value;
             if (weaponPower === "") {
@@ -214,6 +214,7 @@ window.onload = setTimeout(() => {
     });
 
     function validateInput(input) {
+        console.log(input)
         let num = input;
         if (!isNaN(parseFloat(num)) && isFinite(num)) {
             return parseFloat(num);
