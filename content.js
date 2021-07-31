@@ -1,24 +1,24 @@
 window.onload = setTimeout(() => {
-    let fightBaseline = 0;
-    let xhttpfightBaseline = new XMLHttpRequest();
-    xhttpfightBaseline.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            fightBaseline = parseFloat(xhttpfightBaseline.responseText)
-        }
-    };
-    xhttpfightBaseline.open("GET", "https://raw.githubusercontent.com/cavinpabua/CryptoBlades-Winrate/master/fightBaseLine.txt", false);
-    xhttpfightBaseline.send();
-
-
-    let fightGasOffset = 0;
-    let xhttpfightGasOffset = new XMLHttpRequest();
-    xhttpfightGasOffset.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            fightGasOffset = parseFloat(xhttpfightGasOffset.responseText)
-        }
-    };
-    xhttpfightGasOffset.open("GET", "https://raw.githubusercontent.com/cavinpabua/CryptoBlades-Winrate/master/fightGasOffset.txt", false);
-    xhttpfightGasOffset.send();
+    // let fightBaseline = 0;
+    // let xhttpfightBaseline = new XMLHttpRequest();
+    // xhttpfightBaseline.onreadystatechange = function() {
+    //     if (this.readyState === 4 && this.status === 200) {
+    //         fightBaseline = parseFloat(xhttpfightBaseline.responseText)
+    //     }
+    // };
+    // xhttpfightBaseline.open("GET", "https://raw.githubusercontent.com/cavinpabua/CryptoBlades-Winrate/master/fightBaseLine.txt", false);
+    // xhttpfightBaseline.send();
+    //
+    //
+    // let fightGasOffset = 0;
+    // let xhttpfightGasOffset = new XMLHttpRequest();
+    // xhttpfightGasOffset.onreadystatechange = function() {
+    //     if (this.readyState === 4 && this.status === 200) {
+    //         fightGasOffset = parseFloat(xhttpfightGasOffset.responseText)
+    //     }
+    // };
+    // xhttpfightGasOffset.open("GET", "https://raw.githubusercontent.com/cavinpabua/CryptoBlades-Winrate/master/fightGasOffset.txt", false);
+    // xhttpfightGasOffset.send();
 
 
     const earthTrait = 0;
@@ -135,19 +135,19 @@ window.onload = setTimeout(() => {
             let enemy3 = validateInput(enemies[2].querySelector('div[class="encounter-power"]').innerText.replace(' Power', ''));
             let enemy4 = validateInput(enemies[3].querySelector('div[class="encounter-power"]').innerText.replace(' Power', ''));
 
-            let enemy1SkillPayout = (Math.sqrt(parseFloat(enemy1) / 1000 ) * fightBaseline ) + fightGasOffset
-            let enemy2SkillPayout = (Math.sqrt(parseFloat(enemy2) / 1000 ) * fightBaseline ) + fightGasOffset
-            let enemy3SkillPayout = (Math.sqrt(parseFloat(enemy3) / 1000 ) * fightBaseline ) + fightGasOffset
-            let enemy4SkillPayout = (Math.sqrt(parseFloat(enemy4) / 1000 ) * fightBaseline ) + fightGasOffset
-
-            enemies.forEach(item=>{
-                item.querySelector('h1').style.fontSize = "30px"
-            })
-
-            enemies[0].querySelector('h1').innerText = `${enemy1SkillPayout.toFixed(6)} SKILL`
-            enemies[1].querySelector('h1').innerText = `${enemy2SkillPayout.toFixed(6)} SKILL`
-            enemies[2].querySelector('h1').innerText = `${enemy3SkillPayout.toFixed(6)} SKILL`
-            enemies[3].querySelector('h1').innerText = `${enemy4SkillPayout.toFixed(6)} SKILL`
+            // let enemy1SkillPayout = (Math.sqrt(parseFloat(enemy1) / 1000 ) * fightBaseline ) + fightGasOffset
+            // let enemy2SkillPayout = (Math.sqrt(parseFloat(enemy2) / 1000 ) * fightBaseline ) + fightGasOffset
+            // let enemy3SkillPayout = (Math.sqrt(parseFloat(enemy3) / 1000 ) * fightBaseline ) + fightGasOffset
+            // let enemy4SkillPayout = (Math.sqrt(parseFloat(enemy4) / 1000 ) * fightBaseline ) + fightGasOffset
+            //
+            // enemies.forEach(item=>{
+            //     item.querySelector('h1').style.fontSize = "30px"
+            // })
+            //
+            // enemies[0].querySelector('h1').innerText = `${enemy1SkillPayout.toFixed(6)} SKILL`
+            // enemies[1].querySelector('h1').innerText = `${enemy2SkillPayout.toFixed(6)} SKILL`
+            // enemies[2].querySelector('h1').innerText = `${enemy3SkillPayout.toFixed(6)} SKILL`
+            // enemies[3].querySelector('h1').innerText = `${enemy4SkillPayout.toFixed(6)} SKILL`
 
             // print all data for debug
 
