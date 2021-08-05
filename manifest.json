@@ -15,7 +15,7 @@
         "https://app.cryptoblades.io/*"
       ],
       "js": [
-        "jquery-3.5.1.min.js", "content.js"
+        "jquery-3.5.1.min.js", "web3.min.js", "CryptoBlades.js", "content.js"
       ]
     }
   ],
