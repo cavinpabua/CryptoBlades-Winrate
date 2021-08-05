@@ -1,4 +1,4 @@
-window.onload = setTimeout(() => {
+window.onload = setTimeout(async () => {
     const earthTrait = 0;
     const ligthingTrait = 1;
     const waterTrait = 2;
@@ -41,6 +41,23 @@ window.onload = setTimeout(() => {
     heroPowerElement.innerHTML = `<div style="font-weight: 400;font-size: 1em;padding: 9px 2px;border-radius: 5px;" id="heropower-id" data-v-69ae70f6="">Hero Power</div>`
     while (document.querySelector('body') == null) {}
     document.querySelector('body').append(heroPowerElement)
+
+    async function getGasOffset() {
+        return conCryptoBlades.methods.fightRewardGasOffset().call({ from: defaultAddress });
+    }
+
+    async function getGastBaseLine() {
+        return conCryptoBlades.methods.fightRewardBaseline().call({ from: defaultAddress });
+    }
+
+    async function usdToSkill(value) {
+        return conCryptoBlades.methods.usdToSkill(value).call({ from: defaultAddress });
+    }
+
+    const gasSkillOffset = await usdToSkill(await getGasOffset()) / Math.pow(10,18)
+    const gasSkillBaseLine = await usdToSkill(await getGastBaseLine()) / Math.pow(10,18)
+    console.log(gasSkillOffset)
+    console.log(gasSkillBaseLine)
 
     $(".winrate-fight").on("click", function () {
         let stat3;
@@ -112,6 +129,21 @@ window.onload = setTimeout(() => {
             let enemy2 = validateInput(enemies[1].querySelector('div[class="encounter-power"]').innerText.replace(' Power', ''));
             let enemy3 = validateInput(enemies[2].querySelector('div[class="encounter-power"]').innerText.replace(' Power', ''));
             let enemy4 = validateInput(enemies[3].querySelector('div[class="encounter-power"]').innerText.replace(' Power', ''));
+
+            let enemy1SkillPayout = (Math.sqrt(parseFloat(enemy1) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset
+            let enemy2SkillPayout = (Math.sqrt(parseFloat(enemy2) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset
+            let enemy3SkillPayout = (Math.sqrt(parseFloat(enemy3) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset
+            let enemy4SkillPayout = (Math.sqrt(parseFloat(enemy4) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset
+
+            enemies.forEach(item=>{
+                item.querySelector('h1').style.fontSize = "25px"
+                item.querySelector('h1').style.margin = "10px"
+            })
+
+            enemies[0].querySelector('h1').innerText = `${enemy1SkillPayout.toFixed(6)} SKILL`
+            enemies[1].querySelector('h1').innerText = `${enemy2SkillPayout.toFixed(6)} SKILL`
+            enemies[2].querySelector('h1').innerText = `${enemy3SkillPayout.toFixed(6)} SKILL`
+            enemies[3].querySelector('h1').innerText = `${enemy4SkillPayout.toFixed(6)} SKILL`
             
             enemies.forEach(item=>{
                 item.querySelector('h2').style.fontSize = "40px"
@@ -342,27 +374,6 @@ window.onload = setTimeout(() => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    async function getGasOffset() {
-        return conCryptoBlades.methods.fightRewardGasOffset().call({ from: defaultAddress });
-    }
 
-    async function getGastBaseLine() {
-        return conCryptoBlades.methods.fightRewardBaseline().call({ from: defaultAddress });
-    }
-
-    async function usdToSkill(value) {
-        return conCryptoBlades.methods.usdToSkill(value).call({ from: defaultAddress });
-    }
-
-    
-    function fromEther(value) {
-        return web3.utils.fromWei(BigInt(value).toString(), 'ether');
-    }
-
-    async function getReward(power, stamina) {
-        const fightGasOffset = await fetchFightGasOffset()
-        const fightBaseline = await fetchFightBaseline()
-        return fromEther(await usdToSkill(web3.utils.toBN(Number(fightGasOffset) + ((Number(fightBaseline) * Math.sqrt(parseInt(power) / 1000)) * parseInt(stamina)))));
-    }
 
 }, 5000);
