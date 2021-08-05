@@ -3,6 +3,7 @@
 This simulates 500 battles instantly so that players have a better idea on their chances of winning over an encounter/battle.
 
 <b>How to install</b><br/>
+Chrome Store version maybe old version due to review time of Google 
 
 Visit https://chrome.google.com/webstore/detail/cavins-cryptoblade-winrat/jhbllpeafdgnhdcfhdpfhldbafihaofh
 
