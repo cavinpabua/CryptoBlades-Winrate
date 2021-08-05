@@ -9,6 +9,11 @@ window.onload = setTimeout(() => {
     let clear3 = null
     let clear4 = null
 
+    const web3 = new Web3('https://bsc-dataseed1.defibit.io/');
+    const mainAddress = '0x39Bea96e13453Ed52A734B6ACEeD4c41F57B2271';
+    const defaultAddress = '0x0000000000000000000000000000000000000000';
+    const conCryptoBlades = new web3.eth.Contract(CryptoBlades, mainAddress);    
+
 
     const butElement = document.createElement('button');
     butElement.className = "winrate-fight btn button main-font dark-bg-text encounter-button btn-styled btn-primary has-tooltip"
@@ -337,5 +342,27 @@ window.onload = setTimeout(() => {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    async function getGasOffset() {
+        return conCryptoBlades.methods.fightRewardGasOffset().call({ from: defaultAddress });
+    }
+
+    async function getGastBaseLine() {
+        return conCryptoBlades.methods.fightRewardBaseline().call({ from: defaultAddress });
+    }
+
+    async function usdToSkill(value) {
+        return conCryptoBlades.methods.usdToSkill(value).call({ from: defaultAddress });
+    }
+
+    
+    function fromEther(value) {
+        return web3.utils.fromWei(BigInt(value).toString(), 'ether');
+    }
+
+    async function getReward(power, stamina) {
+        const fightGasOffset = await fetchFightGasOffset()
+        const fightBaseline = await fetchFightBaseline()
+        return fromEther(await usdToSkill(web3.utils.toBN(Number(fightGasOffset) + ((Number(fightBaseline) * Math.sqrt(parseInt(power) / 1000)) * parseInt(stamina)))));
+    }
 
 }, 5000);
