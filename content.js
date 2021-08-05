@@ -56,8 +56,7 @@ window.onload = setTimeout(async () => {
 
     const gasSkillOffset = await usdToSkill(await getGasOffset()) / Math.pow(10,18)
     const gasSkillBaseLine = await usdToSkill(await getGastBaseLine()) / Math.pow(10,18)
-    console.log(gasSkillOffset)
-    console.log(gasSkillBaseLine)
+
 
     $(".winrate-fight").on("click", function () {
         let stat3;
@@ -70,6 +69,16 @@ window.onload = setTimeout(async () => {
             printError('Open https://app.cryptoblades.io/#/combat for use script')
             return
         }
+        let rewardMultiplier = 1
+        try{
+            rewardMultiplier = parseInt(document.querySelector(".custom-select").value)
+        }catch (e) {
+            console.log("No multiplier found")
+            rewardMultiplier = 1
+        }
+
+
+
         let chances;
         try {
             const enemies = document.querySelectorAll('div[class="encounter-container"]');
@@ -130,10 +139,10 @@ window.onload = setTimeout(async () => {
             let enemy3 = validateInput(enemies[2].querySelector('div[class="encounter-power"]').innerText.replace(' Power', ''));
             let enemy4 = validateInput(enemies[3].querySelector('div[class="encounter-power"]').innerText.replace(' Power', ''));
 
-            let enemy1SkillPayout = (Math.sqrt(parseFloat(enemy1) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset
-            let enemy2SkillPayout = (Math.sqrt(parseFloat(enemy2) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset
-            let enemy3SkillPayout = (Math.sqrt(parseFloat(enemy3) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset
-            let enemy4SkillPayout = (Math.sqrt(parseFloat(enemy4) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset
+            let enemy1SkillPayout = ((Math.sqrt(parseFloat(enemy1) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset) * rewardMultiplier
+            let enemy2SkillPayout = ((Math.sqrt(parseFloat(enemy2) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset) * rewardMultiplier
+            let enemy3SkillPayout = ((Math.sqrt(parseFloat(enemy3) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset) * rewardMultiplier
+            let enemy4SkillPayout = ((Math.sqrt(parseFloat(enemy4) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset) * rewardMultiplier
 
             enemies.forEach(item=>{
                 item.querySelector('h1').style.fontSize = "25px"
@@ -208,7 +217,6 @@ window.onload = setTimeout(async () => {
     });
 
     function validateInput(input) {
-        console.log(input)
         let num = input;
         if (!isNaN(parseFloat(num)) && isFinite(num)) {
             return parseFloat(num);
