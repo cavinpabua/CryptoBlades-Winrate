@@ -139,10 +139,10 @@ window.onload = setTimeout(async () => {
             let enemy3 = validateInput(enemies[2].querySelector('div[class="encounter-power"]').innerText.replace(' Power', ''));
             let enemy4 = validateInput(enemies[3].querySelector('div[class="encounter-power"]').innerText.replace(' Power', ''));
 
-            let enemy1SkillPayout = ((Math.sqrt(parseFloat(enemy1) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset) * rewardMultiplier
-            let enemy2SkillPayout = ((Math.sqrt(parseFloat(enemy2) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset) * rewardMultiplier
-            let enemy3SkillPayout = ((Math.sqrt(parseFloat(enemy3) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset) * rewardMultiplier
-            let enemy4SkillPayout = ((Math.sqrt(parseFloat(enemy4) / 1000 ) * gasSkillBaseLine ) + gasSkillOffset) * rewardMultiplier
+            let enemy1SkillPayout = ((Math.sqrt(parseFloat(enemy1) / 1000 ) * gasSkillBaseLine ) * rewardMultiplier ) + gasSkillOffset
+            let enemy2SkillPayout = ((Math.sqrt(parseFloat(enemy2) / 1000 ) * gasSkillBaseLine ) * rewardMultiplier ) + gasSkillOffset
+            let enemy3SkillPayout = ((Math.sqrt(parseFloat(enemy3) / 1000 ) * gasSkillBaseLine ) * rewardMultiplier ) + gasSkillOffset
+            let enemy4SkillPayout = ((Math.sqrt(parseFloat(enemy4) / 1000 ) * gasSkillBaseLine ) * rewardMultiplier ) + gasSkillOffset
 
             enemies.forEach(item=>{
                 item.querySelector('h1').style.fontSize = "25px"
