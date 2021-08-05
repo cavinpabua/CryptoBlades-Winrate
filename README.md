@@ -4,12 +4,7 @@ This simulates 500 battles instantly so that players have a better idea on their
 
 <b>How to install</b><br/>
 
-<ul>
-  <li>Visit chrome://extensions (or via menu -> Tools -> Extensions).</li>
-  <li>Enable Developer mode by ticking the checkbox in the upper-right corner.</li>
-  <li>Click on the "Load unpacked extension..." button.</li>
-  <li>Select the directory containing this extension.</li>
-</ul>
+Visit https://chrome.google.com/webstore/detail/cavins-cryptoblade-winrat/jhbllpeafdgnhdcfhdpfhldbafihaofh
 
 <b>Features</b><br/>
 
