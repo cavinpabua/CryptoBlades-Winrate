@@ -83,7 +83,7 @@ window.onload = setTimeout(async () => {
         try {
             const enemies = document.querySelectorAll('div[class="encounter-container"]');
             // get trait hero in string, convert to int
-            let heroTraitStr = document.querySelectorAll('span[data-v-07ea9a5c]')[1].className.replace('-icon trait-icon', '')
+            let heroTraitStr = $(".trait-icon")[0].className.replace('-icon trait-icon', '')
             const heroTrait = checkElement(heroTraitStr);
 
             // get weapon div, get all stats
@@ -125,7 +125,7 @@ window.onload = setTimeout(async () => {
             let enemy4Trait = checkElement(enemies[3].querySelector('span').className.replace('-icon', ''));
 
             // hero power
-            let heroPower = validateInput(document.querySelectorAll('span[data-v-07ea9a5c]')[4].innerText.replace(/\D+/, ''));
+            let heroPower = validateInput($(".subtext-stats")[0].childNodes[5].innerText.replace(/\D+/, ''));
             // bonus power
             let weaponPower = document.querySelector('input[id="abuztrade-bonus-power"]').value;
             if (weaponPower === "") {
